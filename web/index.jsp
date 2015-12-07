@@ -27,8 +27,8 @@
   }
 </style>
         <h1 style="text-align:center">Tibja - forum dyskusyjne!!!</h1>
-        <div id="loginregister"><a  href="login.java">Log in</a><small>/</small>
-            <a  href="register.java">Register</a></div>
+        <div id="loginregister"><a  href="login.jsp">Log in</a><small>/</small>
+            <a  href="register.jsp">Register</a></div>
         
         <p id="time">
     Today's date: <%= (new java.util.Date()).toLocaleString()%>
