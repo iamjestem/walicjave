@@ -11,9 +11,9 @@ and open the template in the editor.
 body {
     font-family: Verdana, Arial, sans-serif;
     font-size: smaller;
-    padding: 50px;
+    padding: 20px;
     color: #555;
-    background-color: lightblue;
+    background-color: skyblue;
 }
 h1 {
     text-align: left;

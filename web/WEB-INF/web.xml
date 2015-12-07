@@ -13,6 +13,9 @@
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
     <resource-ref>
         <res-ref-name>jdbc/NieLubimyJavy</res-ref-name>
         <res-type>javax.sql.ConnectionPoolDataSource</res-type>
