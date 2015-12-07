@@ -10,7 +10,6 @@
     <head>
     </head>
     <body>
-    </p>
     </body>
 </html>
 <jsp:include page="footer.jsp"/>
