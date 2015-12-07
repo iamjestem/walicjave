@@ -8,12 +8,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width">
+        <title>Tibja - top1 strona o tym Kappa</title>
+        <meta name="viewport" content="width=device-width" charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
+        <h1>Tibja - forum dyskusyjne!!!</h1>
         <p>
     Today's date: <%= (new java.util.Date()).toLocaleString()%>
     </p>
