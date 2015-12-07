@@ -18,7 +18,7 @@ body {
     color: #555;
 }
 h1 {
-    text-align: left;
+    text-align: center;
     letter-spacing: 6px;
     font-size: 1.4em;
     color: #be7429;
@@ -48,4 +48,9 @@ a:link:hover {
     color: #be7429;
     font-weight: normal;
     text-decoration: underline;
+}
+time {
+     position: fixed;
+    bottom: 0;
+    right: 0;
 }

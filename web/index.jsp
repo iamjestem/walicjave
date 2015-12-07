@@ -13,8 +13,15 @@
         <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
-        <h1>Tibja - forum dyskusyjne!!!</h1>
-        <p>
+        <style>
+  #time {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+  }
+</style>
+        <h1 style="text-align:center">Tibja - forum dyskusyjne!!!</h1>
+        <p id="time">
     Today's date: <%= (new java.util.Date()).toLocaleString()%>
     </p>
         <div>janusz pawel 3 </div>
