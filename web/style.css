@@ -7,13 +7,15 @@ and open the template in the editor.
     Created on : 2015-12-07, 17:05:35
     Author     : Marcin
 */
-
+html {
+    background: #CCBA96 url("https://forum.plemiona.pl/tribalwars/tw_back.jpg") no-repeat fixed 50% 0px;
+    
+}
 body {
     font-family: Verdana, Arial, sans-serif;
     font-size: smaller;
     padding: 20px;
     color: #555;
-    background-color: skyblue;
 }
 h1 {
     text-align: left;
@@ -22,6 +24,8 @@ h1 {
     color: #be7429;
     font-weight: normal;
     width: 450px;
+    alignment-baseline: central;
+    
 }
 table {
     width: 580px;
