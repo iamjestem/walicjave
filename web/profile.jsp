@@ -4,23 +4,20 @@
     Document   : index
     Author     : Marcin
 --%>
+<jsp:include page="header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-    "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
     <head>
-        <title>Tibja - top1 strona o tym Kappa</title>
-        <meta name="viewport" content="width=device-width" charset="UTF-8">
-        <link rel="stylesheet" type="text/css" href="style.css"/>
     </head>
     <body>
-        <h1>Panel użytkownika</h1>
+        <h2>Panel użytkownika</h2>
     </body>
 <sql:query var="subjects" dataSource="jdbc/NieLubimyJavy">
     SELECT * from users
 </sql:query>
 
-<table border="1">
+<table>
     <!-- column headers -->
     <tr>
     <c:forEach var="columnName" items="${subjects.columnNames}">
@@ -36,6 +33,5 @@
     </tr>
 </c:forEach>
 </table>
-
-
-    </html>
+</html>
+<jsp:include page="footer.jsp"/>
