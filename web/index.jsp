@@ -19,14 +19,19 @@
     bottom: 0;
     right: 0;
   }
+  #loginregister
+  {
+      position:fixed;
+      right: 0;
+      top: 0;
+  }
 </style>
         <h1 style="text-align:center">Tibja - forum dyskusyjne!!!</h1>
+        <div id="loginregister"><a  href="login.java">Log in</a><small>/</small>
+            <a  href="register.java">Register</a></div>
+        
         <p id="time">
     Today's date: <%= (new java.util.Date()).toLocaleString()%>
     </p>
-        <div>janusz pawel 3 </div>
-        <div>janusz pawel 4 </div>
-        <div>janusz pawel 5 </div>
-        <div>janusz pawel 6 </div>
     </body>
 </html>

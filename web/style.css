@@ -23,7 +23,7 @@ h1 {
     font-size: 1.4em;
     color: #be7429;
     font-weight: normal;
-    width: 450px;
+    width: max-content;
     alignment-baseline: central;
     
 }
@@ -53,4 +53,7 @@ time {
      position: fixed;
     bottom: 0;
     right: 0;
+}
+small{
+    color: coral
 }
