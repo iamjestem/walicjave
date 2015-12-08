@@ -12,24 +12,10 @@
         <meta name="viewport" content="width=device-width" charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Hate Java</title>
     </head>
     <body>
-        <h1>Tibja - forum dyskusyjne</h1>
-        <style>   
-  #time {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-  }
-  #loginregister
-  {
-      position:fixed;
-      right: 0;
-      top: 0;
-  }
-        </style>
-            <div id="loginregister"><a  href="login.jsp">Log in</a><small>/</small>
+            <div class="loginregister"><a  href="login.jsp">Log in</a><small>/</small>
             <a  href="register.jsp">Register</a></div>
+        <h1>Tibja - forum dyskusyjne</h1>
     </body>
 </html>

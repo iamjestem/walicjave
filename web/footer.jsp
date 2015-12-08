@@ -6,12 +6,15 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html>  
     <head>
-    </head>
+    </head>     
     <body>
-        <p id="time">
+        <p class="time">
             Today's date: <%= (new java.util.Date()).toLocaleString()%>
+        </p>
+        <p class="copyrights">Copyright	by Cinos94&Jestem™    ©	2014
+            All rights might be reserved.
         </p>
     </body>
 </html>

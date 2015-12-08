@@ -48,7 +48,6 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 
-
 a:link {
     color: #ffffff;
     font-weight: normal;
@@ -70,4 +69,18 @@ small{
 p
 {
     color: #ffffff
+}
+div.form {
+    margin: auto;
+    width: 20%;
+}
+
+div.loginregister {
+    float: right;
+}
+p.time {
+    float: right;
+}
+p.copyrights {
+    float: left;
 }

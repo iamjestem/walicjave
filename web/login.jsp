@@ -4,6 +4,7 @@
     Author     : Marcin
 --%>
 
+<jsp:include page="header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,13 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div class="form">
+            <p>Username:</p>
+            <input type="text" name="userName" value="" />
+            <p>Password:</p>
+            <input type="password" name="userPassword" value="" /><br>
+            <input type="submit" value="Submit" name="submitLogin" />
+        </div>
     </body>
 </html>
+<jsp:include page="footer.jsp"/>
