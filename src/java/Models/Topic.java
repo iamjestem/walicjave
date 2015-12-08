@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Topic {
+    //zlo
     public LinkedList<Post> posts= new LinkedList<Post>();
     public string topic;
     public int father;
