@@ -58,6 +58,9 @@ a:link:hover {
     font-weight: normal;
     text-decoration: underline;
 }
+a:visited {
+　　text-decoration: none;
+}
 time {
      position: fixed;
     bottom: 0;
