@@ -27,6 +27,9 @@ h1 {
     width: max-content;
     alignment-baseline: central;  
 }
+a.headlink:visited {
+   color:inherit;
+}
 h2 {
     text-align: center;
     letter-spacing: 6px;

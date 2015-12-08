@@ -16,6 +16,6 @@
     <body>
             <div class="loginregister"><a  href="login.jsp">Log in</a><small>/</small>
             <a  href="register.jsp">Register</a></div>
-        <h1><a href="index.jsp">Tibja - forum dyskusyjne</a></h1>
+        <h1><a class="headlink" href="index.jsp">Tibja - forum dyskusyjne</a></h1>
     </body>
 </html>
