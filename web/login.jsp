@@ -13,13 +13,15 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div class="form">
-            <p>Username:</p>
-            <input type="text" name="userName" value="" />
-            <p>Password:</p>
-            <input type="password" name="userPassword" value="" /><br>
-            <input type="submit" value="Submit" name="submitLogin" />
-        </div>
+       <form method="post" action="logination.jsp">
+            <div class="form">
+                <p>Username:</p>
+                <input type="text" name="userName" value="" />
+                <p>Password:</p>
+                <input type="password" name="userPassword" value="" /><br>
+                <input type="submit" value="Submit" name="submitLogin" />
+            </div>
+       </form>
     </body>
 </html>
 <jsp:include page="footer.jsp"/>
