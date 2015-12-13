@@ -5,7 +5,7 @@
     Created on : 2015-12-07, 17:10:50
     Author     : Marcin
 --%>
-<jsp:include page="header.jsp"/>
+<jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -35,4 +35,4 @@
 </table>
     </body>
 </html>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="/menus/footer.jsp"/>

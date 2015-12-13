@@ -4,24 +4,64 @@
     Author     : Marcin
 --%>
 
-<jsp:include page="header.jsp"/>
+<jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Login</title>
     </head>
     <body>
-       <form method="post" action="logination.jsp">
-            <div class="form">
-                <p>Username:</p>
-                <input type="text" name="userName" value="" />
-                <p>Password:</p>
-                <input type="password" name="userPassword" value="" /><br>
-                <input type="submit" value="Submit" name="submitLogin" />
-            </div>
+       <form action="Login" method="POST" id='loginf' name='loginf' onsubmit="return(validate());">
+            <table border ='0'>
+                <tr>
+                    <td>Login:</td>
+                    <td><input type ='text' id ='Login' name='Login' /></td>
+                    <td><label  id ='valLogin'  class="val"/></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type ='text' id ='Password' name='Password' /></td>
+                    <td><label  id ='valPassword'  class="val"/></td>
+                </tr>
+                <tr>
+                    <td  colspan='1'></td>
+                    <td align='right'><input  type="submit" name="submit"  value="Submit"></td>
+                </tr>
+            </table>
        </form>
+        <script>
+                function validate()
+                {
+                    count = 0;
+                    
+                if(document.loginf.Login.value === "" || document.loginf.Login.value === null)
+                {   
+                   document.getElementById("valLogin").innerHTML = "Field required.";
+                   count++;
+                }
+                else
+                {
+                    document.getElementById("valLogin").innerHTML = "";
+                }
+                //Password
+                if(document.loginf.Password.value === "" || document.loginf.Login.value === null)
+                {   
+                   document.getElementById("valPassword").innerHTML = "Field required.";
+                   count++;
+                }
+                else
+                {
+                    document.getElementById("valPassword").innerHTML = "";
+                }
+                
+                
+                if(count>0)
+                    return false;
+                return true;
+                }
+            </script>
     </body>
 </html>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="/menus/footer.jsp"/>
