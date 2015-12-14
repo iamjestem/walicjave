@@ -25,58 +25,10 @@ import javax.servlet.http.HttpSession;
 public class Login extends HttpServlet {
 
     private Connection connect = null;
-    private Statement statement = null;
     private ResultSet resultSet = null;
-    private PreparedStatement preparedStatement = null;
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Login</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Login at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
+    private PreparedStatement statement = null;
+    private boolean status;
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -86,19 +38,18 @@ public class Login extends HttpServlet {
             RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
            
-            if(connect != null)
-            {
-                statement = connect.createStatement();
-                String Login = request.getParameter("Login");
-                String Password = request.getParameter("Password");
-                resultSet = statement.executeQuery("select * from users where Nickname='" + Login + "' and Password='" + Password + "'");
-                resultSet.next(); ///?
+
+                statement = connect.prepareStatement("select * from users where Nickname=? and Password=?");
+                statement.setString(1,request.getParameter("Login"));  
+                statement.setString(2,request.getParameter("Password"));  
+                resultSet = statement.executeQuery();
+                status = resultSet.next(); ///?
                 
-                    if(resultSet.first() == true)
+                    if(status)
                     {
                         int id = resultSet.getInt("iDusers");
                         HttpSession session = request.getSession(true);
-                        session.setAttribute("login", Login);
+                        session.setAttribute("login", request.getParameter("Login"));
                         session.setAttribute("id",id);
                         connect.close();
                         response.sendRedirect("index.jsp");
@@ -106,12 +57,9 @@ public class Login extends HttpServlet {
                     else
                     {
                         connect.close();
-                        request.setAttribute("error", "Wrong login/password, please try again.");
-                        rd.forward(request, response);
-                        //response.sendRedirect("Login.jsp");
+                        request.setAttribute("error", "Umm... wrong password...");
+                        //response.sendRedirect("index.jsp");
                     }
-
-            }
         }
         catch (SQLException ex)
         {
@@ -119,17 +67,5 @@ public class Login extends HttpServlet {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }

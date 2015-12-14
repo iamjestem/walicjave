@@ -13,9 +13,9 @@
         <title>Register</title>
     </head>
     <body>
+            <div class="form">
        <form action='Register' method ="POST" id='regf' name='regf' onsubmit="return(validatereg());">
             
-            <div class="form">
             <table border ='0'>
                 <tr>
                     <td colspan='2'><h1>Registration</h1></td>
@@ -53,7 +53,7 @@
             
            
         </form>
-           <script type="text/javascript">
+           <script>
            function validatereg()
            {
                 var count = 0;
@@ -83,7 +83,7 @@
                 }
                 else
                 {
-                    document.getElementById("valNickname").innerHTML = " ";
+                    document.getElementById("valNickname").innerHTML = "";
                 }
                //Password
                 if(document.regf.Password.value === "" ||document.regf.Password.value === null)
@@ -95,14 +95,8 @@
                 {
                     document.getElementById("valPassword").innerHTML = "";
                 }
-               
-               
-               if(count>0)
-               {
-                   count = 0;
+               if(count>0) return false;
                    return false;
-               }
-                return true;
            }
         </script>
     </body>
