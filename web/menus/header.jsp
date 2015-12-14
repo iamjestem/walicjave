@@ -25,7 +25,6 @@
                               <c:url var="url" value="language">
                                 <c:param name="language" value="en"/>
                               </c:url>
-                              <img src="http://static.hltv.org//images/flag/gb.gif" width="42" height="42">
                               <a href="${url}">
                                   <img src="http://static.hltv.org//images/flag/gb.gif" width="25" height="18">english
                               </a>

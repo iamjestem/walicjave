@@ -1,3 +1,6 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%-- 
     Document   : footer
     Created on : 2015-12-08, 00:00:52
@@ -11,10 +14,9 @@
     </head>     
     <body>
         <p class="time">
-            Today's date: <%= (new java.util.Date()).toLocaleString()%>
+            <fmt:message key='date'/> <%= (new java.util.Date()).toLocaleString()%>
         </p>
-        <p class="copyrights">Copyright	by Cinos94&Jestem™    ©	2014
-            All rights might be reserved.
+        <p class="copyrights"><fmt:message key='foot'/>
         </p>
     </body>
 </html>

@@ -17,6 +17,6 @@
             <div class="loginregister"><a  href="Profile"><fmt:message key='hello'/></a><small>/</small>
                 <a href="Logout"><fmt:message key='logout'/></a>
             </div>
-        <h1><a class="headlink" href="index.jsp">Tibja - discussion forum</a></h1>
+        <h1><a class="headlink" href="index.jsp"><fmt:message key='h1'/></a></h1>
     </body>
 </html>
