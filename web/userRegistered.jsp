@@ -1,5 +1,5 @@
 
-<jsp:include page="header.jsp"/>
+<jsp:include page="/menus/header.jsp"/>
 <%@ page language="java" 
          contentType="text/html; charset=windows-1256"
          pageEncoding="windows-1256"
@@ -23,4 +23,4 @@
       </body>
 	
    </html>
-<jsp:include page="footer.jsp"/>
+<jsp:include page="/menus/footer.jsp"/>

@@ -32,55 +32,7 @@ public class Register extends HttpServlet {
     private Statement statement = null;
     private ResultSet resultSet = null;
     private PreparedStatement preparedStatement = null;
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet Register</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet Register at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
+    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -108,8 +60,7 @@ public class Register extends HttpServlet {
             else
             {
                 preparedStatement = connect.prepareStatement("insert into  baza.users values (default, ?, ? , ?, ?)");
-                // "myuser, webpage, datum, summery, COMMENTS from feedback.comments");
-                // Parameters start with 1
+
                 preparedStatement.setString(1, Password);
                 preparedStatement.setString(2, Nickname);
                 preparedStatement.setString(3, Name);
@@ -117,25 +68,12 @@ public class Register extends HttpServlet {
                 preparedStatement.executeUpdate();
                 
                 request.setAttribute("error", "Registration sucessfull. Welcome "+Name+" "+Surname);
-                rd.forward(request, response);
+                //rd.forward(request, response);
             }
         }
         catch (ClassNotFoundException | SQLException ex) 
         {
             Logger.getLogger(Register.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-       
+        } 
     }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
-
 }
