@@ -29,6 +29,9 @@
                     <td  colspan='1'></td>
                     <td align='right'><input  type="submit" name="submit"  value="Submit"></td>
                 </tr>
+                <tr>
+                    <td> <p>${error}</p></td>
+                </tr>
             </table>
        </form>
         <script>
