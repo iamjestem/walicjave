@@ -13,6 +13,7 @@
         <title>Login</title>
     </head>
     <body>
+        <div class="form">
        <form action="Login" method="POST" id='loginf' name='loginf' onsubmit="return(validate());">
             <table border ='0'>
                 <tr>
@@ -33,6 +34,7 @@
                     <td> <p>${error}</p></td>
                 </tr>
             </table>
+        </div>
        </form>
         <script>
                 function validate()
