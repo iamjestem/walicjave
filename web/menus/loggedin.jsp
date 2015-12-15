@@ -14,7 +14,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <div class="loginregister"><a href="profile.jsp"><fmt:message key='userpanel'/></a></div>
+        <div class="loginregister"><a href="Profile"><fmt:message key='userpanel'/></a></div>
             <div class="loginregister"><a  href="Profile"><fmt:message key='hello'/></a><small>/</small>
                 <a href="Logout"><fmt:message key='logout'/></a>
             </div>

@@ -93,15 +93,15 @@ public class Profile extends HttpServlet {
                         request.setAttribute("Password", Password);
                          RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
                         rd.forward(request, response);
-                        //response.sendRedirect("profile.jsp");
+                        response.sendRedirect("profile.jsp");
                     }
                     else
                     {
                         connect.close();
                         request.setAttribute("error", "Something went wrong :/");
-                         //RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
-                        //rd.forward(request, response);
-                        //response.sendRedirect("profile.jsp");
+                         RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+                        rd.forward(request, response);
+                        response.sendRedirect("profile.jsp");
                     }
 
             }

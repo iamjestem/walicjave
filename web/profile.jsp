@@ -8,45 +8,37 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <%
-        String Nickname = (String)request.getParameter("Nickname");
-        String Name = (String)request.getParameter("Name");
-        String Password = (String)request.getParameter("Password");
-        String Surname = (String)request.getParameter("Surname");
-        out.println("Hello <b>"+Name+"</b>!");
-        %>
         
     <head>
     </head>
     <body>
+        <form action='Profile' method ="GET" id='regf' name='regf' ></form>
         <h2>Panel użytkownika</h2>
         <div class="form">
-       <form action='Profile' method ="POST" id='regf' name='regf' >
-            
-            
+       <form action='Profile' method ="GET" id='regf' name='regf' >
             <table border ='0'>
                 <tr>
                     
                 </tr>
                 <tr>
                     <td>Login:</td>
-                    <td><input type ='text' id ='Nickname' name='Nickname' value ="${sessionScope.login}"/></td>
+                    <td><input type ='text' id ='Nickname' name='Nickname' value ="${Login}"/></td>
                     <td><label  id ='valLogin'  class="val"/></td>
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type ='password' id ='Password' name='Password' value=${param.Password} /></td>
+                    <td><input type ='password' id ='Password' name='Password' value=${Password}</td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>
                 
                 <tr>
                     <td>Name:</td>
-                    <td><input type ='text' id ='Name' name='Name' value="${param['Name']}" /></td>
+                    <td><input type ='text' id ='Name' name='Name' value="${Name}" /></td>
                     <td><label  id ='valName'  class="val"/></td>
                 </tr>
                 <tr>
                     <td>Surname:</td>
-                    <td> <input type ='text' id ='Surname' name='Surname' value=<%= request.getParameter("Surname") %> /></td>
+                    <td> <input type ='text' id ='Surname' name='Surname' value=${Surname} /></td>
                     <td><label  id ='valSurname'  class="val"/></td>
                 </tr>
                 <tr>
@@ -57,9 +49,6 @@
                     <td> <p>${error}</p></td>
                 </tr>
             </table>
-            
-            
-           
         </form></div>
     </body>
 
