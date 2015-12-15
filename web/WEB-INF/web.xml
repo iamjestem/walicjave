@@ -36,6 +36,10 @@
         <servlet-name>ShowTopics</servlet-name>
         <servlet-class>User.ShowTopics</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Stats</servlet-name>
+        <servlet-class>Session.Stats</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -68,13 +72,17 @@
         <servlet-name>ShowTopics</servlet-name>
         <url-pattern>/ShowTopics</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Stats</servlet-name>
+        <url-pattern>/Stats</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>Stats</welcome-file>
     </welcome-file-list>
     <resource-ref>
         <res-ref-name>jdbc/NieLubimyJavy</res-ref-name>

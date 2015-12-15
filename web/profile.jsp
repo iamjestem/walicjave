@@ -26,7 +26,7 @@
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type ='password' id ='Password' name='Password' value=${Password}</td>
+                    <td><input type ='password' id ='Password' name='Password' value=${Password}></td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>
                 

@@ -69,6 +69,8 @@ time {
      position: fixed;
     bottom: 0;
     right: 0;
+    float:right;
+    background: none;
 }
 small{
     color: coral
@@ -111,4 +113,9 @@ div.headerWidget{
 
 .eng{
     background-image: url(http://static.hltv.org//images/flag/gb.gif);
+}
+table.foot
+{
+    background:none;
+    border-collapse: collapse;
 }

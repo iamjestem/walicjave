@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Tibja - top1 strona o tym Kappa</title>
+        <title><fmt:message key='title'/></title>
         <meta name="viewport" content="width=device-width" charset="UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -18,6 +18,6 @@
             <div class="loginregister"><a  href="Admin Panel"><fmt:message key='Admin Panel'/></a><small>/</small>
                 <a href="Logout"><fmt:message key='logout'/></a>
             </div>
-        <h1><a class="headlink" href="index.jsp"><fmt:message key='h1'/></a></h1>
+        <h1><a class="headlink" href="Stats"><fmt:message key='h1'/></a></h1>
     </body>
 </html>
