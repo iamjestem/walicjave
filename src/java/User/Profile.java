@@ -6,12 +6,19 @@
 
 package User;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,6 +26,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Profile extends HttpServlet {
 
+    private Connection connect = null;
+    private Statement statement = null;
+    private ResultSet resultSet = null;
+    private PreparedStatement preparedStatement = null;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -57,7 +68,53 @@ public class Profile extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         try 
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
+            if(connect != null)
+            {
+                statement = connect.createStatement();
+                HttpSession session = request.getSession();
+                request.getSession().setAttribute("login", "asd");
+                String Login = "cinos";
+                Integer Id= 13;
+                out.println("Hello <b>"+Login+"</b>!");
+                resultSet = statement.executeQuery("select * from users where Nickname='" + Login + "' and idUsers='" + Id + "'");
+                resultSet.next(); ///?
+                
+                    if(resultSet.first() == true)
+                    {
+                        int id = resultSet.getInt("idUsers");
+                        String Surname = resultSet.getString("Surname");
+                        String Name = resultSet.getString("Name");
+                        String Password = resultSet.getString("password");
+                        request.getSession().setAttribute("login", Name);
+                        request.setAttribute("Name", Name);
+                        request.setAttribute("Surname", Surname);
+                        request.setAttribute("Login",Login);
+                        request.setAttribute("Password", Password);
+                         RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+                        rd.forward(request, response);
+                        //response.sendRedirect("profile.jsp");
+                    }
+                    else
+                    {
+                        connect.close();
+                        request.setAttribute("error", "Something went wrong :/");
+                         //RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+                        //rd.forward(request, response);
+                        //response.sendRedirect("profile.jsp");
+                    }
+
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -71,7 +128,7 @@ public class Profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
     }
 
     /**

@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td>Password:</td>
-                    <td><input type ='text' id ='Password' name='Password' /></td>
+                    <td><input type ='password' id ='Password' name='Password' /></td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>
                 <tr>
