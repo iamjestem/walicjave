@@ -68,7 +68,7 @@ public class Register extends HttpServlet {
                 preparedStatement.executeUpdate();
                 
                 request.setAttribute("error", "Registration sucessfull. Welcome "+Name+" "+Surname);
-                //rd.forward(request, response);
+                rd.forward(request, response);
             }
         }
         catch (ClassNotFoundException | SQLException ex) 

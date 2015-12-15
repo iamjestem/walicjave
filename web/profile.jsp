@@ -12,10 +12,9 @@
     <head>
     </head>
     <body>
-        <form action='Profile' method ="GET" id='regf' name='regf' ></form>
         <h2>Panel użytkownika</h2>
         <div class="form">
-       <form action='Profile' method ="GET" id='regf' name='regf' >
+       <form action='Profile' method ="POST" id='regf' name='regf' >
             <table border ='0'>
                 <tr>
                     
@@ -49,7 +48,7 @@
                     <td> <p>${error}</p></td>
                 </tr>
             </table>
-        </form></div>
+           </form></form></div>
     </body>
 
 

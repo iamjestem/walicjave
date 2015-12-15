@@ -58,7 +58,7 @@ public class Login extends HttpServlet {
                     {
                         connect.close();
                         request.setAttribute("error", "Umm... wrong password...");
-                        //response.sendRedirect("index.jsp");
+                        rd.forward(request, response);
                     }
         }
         catch (SQLException ex)

@@ -125,7 +125,33 @@ public class Profile extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        try 
+        {
+            RequestDispatcher rd = request.getRequestDispatcher("profile.jsp");
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
+            if(connect != null)
+            {
+                statement = connect.createStatement();
+                String Name = (String)request.getAttribute("Name");
+                String Surname = (String)request.getAttribute("Surname");
+                String Login = (String)request.getAttribute("Login");
+               String Password=(String) request.getAttribute("Password");
+               Integer id= (Integer)request.getSession().getAttribute("id");
+                resultSet = statement.executeQuery("UPDATE users SET Nickname='" + Login + "', Name='" + Name + "', password='" + Password + "', Surname='"+Surname+"'"+"WHERE idUsers='"+id+"'");
+                connect.close();
+                response.sendRedirect("profile.jsp");
+                //rd.forward(request, response);
+                   
+
+            }
+        }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Profile.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
