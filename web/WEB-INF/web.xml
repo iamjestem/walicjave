@@ -32,6 +32,10 @@
         <servlet-name>language</servlet-name>
         <servlet-class>User.language</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowTopics</servlet-name>
+        <servlet-class>User.ShowTopics</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -59,6 +63,10 @@
     <servlet-mapping>
         <servlet-name>language</servlet-name>
         <url-pattern>/language</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowTopics</servlet-name>
+        <url-pattern>/ShowTopics</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

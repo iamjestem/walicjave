@@ -15,31 +15,15 @@
 <html>
     <head>
     </head>
-    <%String subj = request.getParameter("name"); %>
+    <%String sub = request.getParameter("cathegory"); 
+    %>
+    <c:set var="subj" value="${Gra}"/>
     <sql:query var="subjects" dataSource="jdbc/NieLubimyJavy">
-    SELECT * from topics WHERE idTopic = ?
+    SELECT * from topics t, cathegories c WHERE c.idCathegory = t.idCathegory AND c.Content like 'Gra'
   <sql:param value="${subj}" />
 </sql:query>
     <body>
-                        <%
-                   
-                    String msg;
-                    if(session.getAttribute("login") != null)
-                    {
-                        Integer userid = (Integer) session.getAttribute("id");
-                        msg = "Welcome "+session.getAttribute("login")+" id: "+userid;
-                    }
-                    else
-                        msg = "not logged";
-                    
-                    
-               //<h4>${sessionScope.login }</h4>
-                       
-                %>
-                
-                <h1><%=msg.toString()%>    </h1>
-        
-        
+                <h1><%=sub.toString()%>    </h1>
         <table>
     <!-- column headers -->
     <tr>
@@ -51,7 +35,7 @@
 <c:forEach var="row" items="${subjects.rowsByIndex}">
     <tr>
     <c:forEach var="column" items="${row}">
-        <td><a href="cathegory.jsp?cathegory=${column}"><c:out value="${column}"/></a></td>
+        <td><a href="topic.jsp?topic=${column}"><c:out value="${column}"/></a></td>
          
     </c:forEach>
     </tr>
