@@ -76,20 +76,17 @@ public class Profile extends HttpServlet {
             {
                 statement = connect.createStatement();
                 HttpSession session = request.getSession();
-                request.getSession().setAttribute("login", "asd");
-                String Login = "cinos";
-                Integer Id= 13;
+                String Login = (String)session.getAttribute("login");
+                Integer Id = (Integer)session.getAttribute("id");
                 out.println("Hello <b>"+Login+"</b>!");
                 resultSet = statement.executeQuery("select * from users where Nickname='" + Login + "' and idUsers='" + Id + "'");
                 resultSet.next(); ///?
                 
                     if(resultSet.first() == true)
                     {
-                        int id = resultSet.getInt("idUsers");
                         String Surname = resultSet.getString("Surname");
                         String Name = resultSet.getString("Name");
                         String Password = resultSet.getString("password");
-                        request.getSession().setAttribute("login", Name);
                         request.setAttribute("Name", Name);
                         request.setAttribute("Surname", Surname);
                         request.setAttribute("Login",Login);

@@ -19,23 +19,7 @@
     SELECT * from cathegories
 </sql:query>
     <body>
-                        <%
-                   
-                    String msg;
-                    if(session.getAttribute("login") != null)
-                    {
-                        Integer userid = (Integer) session.getAttribute("id");
-                        msg = "Welcome "+session.getAttribute("login")+" id: "+userid;
-                    }
-                    else
-                        msg = "not logged";
                     
-                    
-               //<h4>${sessionScope.login }</h4>
-                       
-                %>
-                
-                <h1><%=msg.toString()%>    </h1>
         
         
         <table>
