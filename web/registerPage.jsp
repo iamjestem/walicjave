@@ -13,9 +13,10 @@
         <title>Register</title>
     </head>
     <body>
+        <div class="form">
        <form action='Register' method ="POST" id='regf' name='regf' onsubmit="return(validatereg());">
             
-            <div class="form">
+            
             <table border ='0'>
                 <tr>
                     <td colspan='2'><h1>Registration</h1></td>
@@ -49,10 +50,10 @@
                     <td> <p>${error}</p></td>
                 </tr>
             </table>
-            </div>
+            
             
            
-        </form>
+        </form></div>
            <script type="text/javascript">
            function validatereg()
            {

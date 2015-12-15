@@ -96,7 +96,7 @@ public class Login extends HttpServlet {
                 
                     if(resultSet.first() == true)
                     {
-                        int id = resultSet.getInt("iDusers");
+                        int id = resultSet.getInt("idUsers");
                         HttpSession session = request.getSession(true);
                         session.setAttribute("login", Login);
                         session.setAttribute("id",id);
