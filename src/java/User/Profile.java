@@ -133,17 +133,29 @@ public class Profile extends HttpServlet {
             if(connect != null)
             {
                 statement = connect.createStatement();
-                String Name = (String)request.getAttribute("Name");
-                String Surname = (String)request.getAttribute("Surname");
-                String Login = (String)request.getAttribute("Login");
-               String Password=(String) request.getAttribute("Password");
+                String Name = (String)request.getParameter("Name");
+                String Surname = (String)request.getParameter("Surname");
+                String Login = (String)request.getParameter("Nickname");
+               String Password = (String) request.getParameter("Password");
                Integer id= (Integer)request.getSession().getAttribute("id");
-                resultSet = statement.executeQuery("UPDATE users SET Nickname='" + Login + "', Name='" + Name + "', password='" + Password + "', Surname='"+Surname+"'"+"WHERE idUsers='"+id+"'");
+               
+                preparedStatement = connect.prepareStatement("UPDATE users SET Nickname=?, Name=?, password=?, Surname=? WHERE idUsers=?");
+                preparedStatement.setString(1, Login);
+                preparedStatement.setString(2, Name);
+                preparedStatement.setString(3, Password);
+                preparedStatement.setString(4, Surname);
+                preparedStatement.setInt(5, id);
+                preparedStatement.executeUpdate();
+               
+               
+                //resultSet = statement.executeQuery("UPDATE users SET Nickname='" + Login + "', Name='" + Name + "', password='" + Password + "', Surname='"+Surname+"'"+"WHERE idUsers='"+id+"'");
                 connect.close();
-                response.sendRedirect("profile.jsp");
-                //rd.forward(request, response);
-                   
-
+                        request.setAttribute("Name", Name);
+                        request.setAttribute("Surname", Surname);
+                        request.setAttribute("Login",Login);
+                        request.setAttribute("Password", Password);
+                //response.sendRedirect("profile.jsp");
+                rd.forward(request, response);
             }
         }
         catch (SQLException ex)
