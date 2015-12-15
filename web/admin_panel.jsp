@@ -17,7 +17,7 @@
         <table>
     <tr>
         <th>Notka admina</th>
-        <th><a href="notka.jsp">Przejdź</a></th>
+        <th><a href="Note">Przejdź</a></th>
     </tr>
     <tr>
         <th>Lista użytkowników</th>

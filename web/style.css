@@ -126,3 +126,10 @@ table.foot
     background:none;
     border-collapse: collapse;
 }
+input.note{
+    margin-left: auto;
+    margin-right: auto;
+     font-size:18pt;
+     height:100px;
+     width:200px;
+}
