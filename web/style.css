@@ -101,7 +101,14 @@ p.copyrights {
 div.headerWidget{
     float:left;
 }
-
+div.adminnote{
+    font-size:30px;
+    background-color:activecaption;
+    text-align:center;
+    width:40%;
+    margin-left: auto;
+    margin-right: auto;
+}
 .bubble {
     font-weight: bold;
     background-color: #f5eabe;

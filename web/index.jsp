@@ -18,10 +18,13 @@
     <sql:query var="subjects" dataSource="jdbc/NieLubimyJavy">
     SELECT * from cathegories
 </sql:query>
+<sql:query var="adminnote" dataSource="jdbc/NieLubimyJavy">SELECT * from adminnote</sql:query>
     <body>
-                    
-        
-        
+     <div class="adminnote"><c:forEach var="row" items="${adminnote.rowsByIndex}">  
+         <c:forEach var="column" items="${row}">
+    <c:out value="${column}"></c:out>
+        </c:forEach>
+     </c:forEach></div>
         <table>
     <!-- column headers -->
     <tr>
