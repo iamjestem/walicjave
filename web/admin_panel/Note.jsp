@@ -16,7 +16,11 @@
     <head>
     </head>
     <body>
-        <input class="note" type="text" value="${note}" size="100px">
+        <div class='note'>  
+            <textarea class='note' width='500' height='300'>
+                ${note}
+            </textarea>
+        </div>
         <p>${error}</p>
     </body>
 </html>
