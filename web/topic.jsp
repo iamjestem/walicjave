@@ -15,6 +15,8 @@
 <jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+    <%String sub = request.getParameter("topic"); 
+    %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,7 +39,14 @@
                 <td>${row.idUsers}</td>
         </tr>
     </c:forEach>
-</table>
+</table>>
+        <form action="NewPost" method="POST" id='notes' name='notes'>
+        <div class='note'>  
+            <input tyle='text' name='newtopic'/>
+            <input type='hidden' name='topic' value="<%=sub.toString()%>"/>
+            <input  type="submit" name="submit"  value="Dodaj sobie nowy post">
+        </div>
+        <p>${error}</p></form>
     </body>
 </html>
 <jsp:include page="/menus/footer.jsp"/>

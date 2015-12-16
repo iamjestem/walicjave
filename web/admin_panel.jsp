@@ -21,11 +21,11 @@
     </tr>
     <tr>
         <th>Lista użytkowników</th>
-        <th><a href="users.jsp">Przejdź</a></th>
+        <th><a href="Users">Przejdź</a></th>
     </tr> 
     <tr>
         <th>Lista prywatnych wiadomości użytkowników</th>
-        <th><a href="messages.jsp">Przejdź</a></th>
+        <th><a href="AllMessages">Przejdź</a></th>
     </tr>
 </table>
     </body>

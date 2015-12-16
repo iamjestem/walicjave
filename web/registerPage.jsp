@@ -3,7 +3,7 @@
     Created on : 2015-12-07, 23:34:10
     Author     : Marcin
 --%>
-
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
             
             <table border ='0'>
                 <tr>
-                    <td colspan='2'><h1>Registration</h1></td>
+                    <td colspan='2'><h1><fmt:message key='reg'/></h1></td>
                 </tr>
                 <tr>
                     <td>Login:</td>
@@ -26,18 +26,18 @@
                     <td><label  id ='valLogin'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
+                    <td><fmt:message key='password'/></td>
                     <td><input type ='text' id ='Password' name='Password' /></td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>
                 
                 <tr>
-                    <td>Name:</td>
+                    <td><fmt:message key='name'/></td>
                     <td><input type ='text' id ='Name' name='Name' /></td>
                     <td><label  id ='valName'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Surname:</td>
+                    <td><fmt:message key='surname'/></td>
                     <td> <input type ='text' id ='Surname' name='Surname' /></td>
                     <td><label  id ='valSurname'  class="val"/></td>
                 </tr>

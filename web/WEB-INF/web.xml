@@ -60,6 +60,18 @@
         <servlet-name>NewTopic</servlet-name>
         <servlet-class>User.NewTopic</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Users</servlet-name>
+        <servlet-class>Admin.Users</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AllMessages</servlet-name>
+        <servlet-class>Admin.AllMessages</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>NewPost</servlet-name>
+        <servlet-class>User.NewPost</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -115,6 +127,18 @@
     <servlet-mapping>
         <servlet-name>NewTopic</servlet-name>
         <url-pattern>/NewTopic</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Users</servlet-name>
+        <url-pattern>/Users</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllMessages</servlet-name>
+        <url-pattern>/AllMessages</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>NewPost</servlet-name>
+        <url-pattern>/NewPost</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>1200</session-timeout>

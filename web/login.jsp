@@ -4,6 +4,7 @@
     Author     : Marcin
 --%>
 
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -22,7 +23,7 @@
                     <td><label  id ='valLogin'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
+                    <td><fmt:message key='password'/></td>
                     <td><input type ='password' id ='Password' name='Password' /></td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>

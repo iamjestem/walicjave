@@ -61,6 +61,7 @@ public class ShowTopics extends HttpServlet {
                 list.add(m);
             }
                         request.setAttribute("listoftopics", list);
+                        request.setAttribute("cathegory", sub);
                          RequestDispatcher rd = request.getRequestDispatcher("cathegory.jsp");
                         rd.forward(request, response);
             }
