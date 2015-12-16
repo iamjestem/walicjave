@@ -20,6 +20,6 @@
             <a  href="Messages"><fmt:message key='messages'/></a><small>/</small>
                 <a href="Logout"><fmt:message key='logout'/></a>
             </div>
-        <h1><a class="headlink" href="index.jsp"><fmt:message key='h1'/></a></h1>
+        <h1><a class="headlink" href="Stats"><fmt:message key='h1'/></a></h1>
     </body>
 </html>
