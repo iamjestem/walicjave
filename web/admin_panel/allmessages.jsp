@@ -25,19 +25,24 @@
             <th><fmt:message key='sender'/></th>
             <th><fmt:message key='receiver'/></th>
             <th><fmt:message key='message'/></th>
+            <th><fmt:message key='delete'/></th>
             </tr>
         </thead>
 </tr>
 <!-- column data -->
 <c:forEach items="${mesg}" var="current">
+    
+<form action='AllMessages' method ="POST" id='allm' name='allm' >
                                 <tr>
                                     <td> <c:out value="${current.idSender}" /></td>
                                     <td> <c:out value="${current.idReceiver}" /></td>      
                                     <td><c:out value="${current.Message}" /></td>
+                                    <td align='right'><input  type="submit" name="submit"  value="Submit"></td>
                                 </tr>
+</form>
                             </c:forEach>
     
-</table>
+        </table>
     </body>
 </html>
 <jsp:include page="/menus/footer.jsp"/>

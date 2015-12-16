@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-package Admin;
-
+ 
+package User;
+ 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -25,17 +25,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+ 
 /**
  *
  * @author Marcin
  */
-public class AllMessages extends HttpServlet {
-    
+public class NewPost extends HttpServlet {
     private Connection connect = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
     private PreparedStatement preparedStatement = null;
+    private boolean status;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -53,15 +53,15 @@ public class AllMessages extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AllMessages</title>");            
+            out.println("<title>Servlet SendMessage</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AllMessages at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SendMessage at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
     }
-
+ 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -74,40 +74,9 @@ public class AllMessages extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try 
-        {
-            ArrayList list = new ArrayList();
-            Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
-            if(connect != null)
-            {
-                statement = connect.createStatement();
-                HttpSession session = request.getSession();
-                Integer id= (Integer)session.getAttribute("id");
-                
-                resultSet = statement.executeQuery("select u.Nickname a,us.Nickname b,m.Message from messages m,users u,users us where us.idUsers=m.idSender and u.idUsers=m.idReceiver");
-                
-                while(resultSet.next())
-            {
-                Map m = new HashMap();
-                m.put("idSender",resultSet.getString("b"));
-                m.put("idReceiver",resultSet.getString("a"));
-                m.put("Message",resultSet.getString("Message"));
-                list.add(m);
-            }
-                        request.setAttribute("mesg", list);
-                         RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/allmessages.jsp");
-                        rd.forward(request, response);
-            }
+        processRequest(request, response);
     }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(AllMessages.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AllMessages.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
+ 
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -119,34 +88,36 @@ public class AllMessages extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try 
+        try
         {
-            ArrayList list = new ArrayList();
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
             if(connect != null)
             {
                 statement = connect.createStatement();
                 HttpSession session = request.getSession();
-                Integer id= (Integer)session.getAttribute("id");
-                String mes = (String)request.getParameter("submit");
-                
-                statement.executeUpdate("delete from messages where Message='"+mes+"'");
-                
-                
-                       
-                         RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/allmessages.jsp");
-                        rd.forward(request, response);
+                Integer id = (Integer)session.getAttribute("id");
+                Integer topic = Integer.parseInt(request.getParameter("topic"));
+                String message = (String)request.getParameter("newtopic");
+ 
+                    preparedStatement = connect.prepareStatement("insert into topics values (default, ?, ?, ?)");
+                    preparedStatement.setString(1, message);
+                    preparedStatement.setInt(2, topic);
+                    preparedStatement.setInt(3, id);
+                    preparedStatement.executeUpdate();
+                    response.sendRedirect("ShowPosts?topic="+topic);
+                    //RequestDispatcher rd = request.getRequestDispatcher("cathegory.jsp");
+                    //rd.forward(request, response);
             }
     }
         catch (SQLException ex)
         {
-            Logger.getLogger(AllMessages.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SendMessage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(AllMessages.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SendMessage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+ 
     /**
      * Returns a short description of the servlet.
      *
@@ -156,5 +127,5 @@ public class AllMessages extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+ 
 }
