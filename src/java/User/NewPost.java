@@ -14,12 +14,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -98,8 +94,8 @@ public class NewPost extends HttpServlet {
                 HttpSession session = request.getSession();
                 Integer id = (Integer)session.getAttribute("id");
                 Integer topic = Integer.parseInt(request.getParameter("topic"));
-                String message = (String)request.getParameter("newtopic");
- 
+                String message = (String)request.getParameter("text");
+
                     preparedStatement = connect.prepareStatement("insert into posts values (default, ?, ?, ?)");
                     preparedStatement.setString(1, message);
                     preparedStatement.setInt(2, topic);

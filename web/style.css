@@ -32,6 +32,7 @@ a.headlink:visited {
 }
 h2 {
     text-align: center;
+    margin: auto;
     letter-spacing: 6px;
     font-family: Impact, Charcoal, sans-serif;
     font-size: 2em;
@@ -130,7 +131,7 @@ table.foot
     margin: auto;
      width: 80%;
 }
-textarea {
+textarea.note {
      font-size:18pt;
      text-align: left;
      height: 400px;
@@ -139,4 +140,8 @@ textarea {
 }
 tr.mouseover:hover{
     background-color: brown;
+}
+.center{
+    margin:auto;
+     width: 80%;
 }

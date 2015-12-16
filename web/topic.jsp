@@ -14,34 +14,27 @@
 <jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
  
-    <%String sub = request.getParameter("topic");
-    %>
+    <%String sub = request.getParameter("topic");%>
 <!DOCTYPE html>
 <html>
     <head>
     </head>
  
     <body>
+        <h2><%=sub.toString()%></h2>
         <table>
-    <!-- column headers -->
-        <thead>
-                    <th><fmt:message key='idPost'/></th>
-                    <th><fmt:message key='tekst'/></th>
-                    <th><fmt:message key='idTopic'/></th>
-                    <th><fmt:message key='idUsers'/></th>
-        </thead>
+
     <c:forEach items="${listofposts}" var="row">
         <tr>
-                <td>${row.idTopic}</td>
-                <td>${row.topic}</td>
-                <td>${row.idCathegory}</td>
-                <td>${row.idUsers}</td>
+                        <thead><pre class="bubble">User:${row.idUsers}</pre></thead>
         </tr>
+                <td>${row.topic}</td>
     </c:forEach>
 </table>
         <form action="NewPost" method="POST" id='notes' name='notes'>
         <div class='note'>
-            <input tyle='text' name='newtopic'/>
+            <!-- <input type='text' name='newtopic'/> -->
+            <textarea class='note' id="text" name="text" width='500' height='300'>${newtopic}</textarea>
             <input type='hidden' name='topic' value="<%=sub.toString()%>"/>
             <input  type="submit" name="submit"  value="Dodaj sobie nowy post">
         </div>

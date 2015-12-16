@@ -49,7 +49,7 @@ public class ShowPosts extends HttpServlet {
                 statement = connect.createStatement();
                 String sub = request.getParameter("topic");
                 
-                resultSet = statement.executeQuery("select * from posts where idTopic='"+ sub +"'");
+                resultSet = statement.executeQuery("select * from posts p, users u where idTopic='"+ sub +"' AND p.idUsers like u.idUsers");
                 
                 while(resultSet.next())
             {
@@ -57,7 +57,7 @@ public class ShowPosts extends HttpServlet {
                 m.put("idTopic",resultSet.getString("idPost"));
                 m.put("topic",resultSet.getString("tekst"));
                 m.put("idCathegory",resultSet.getString("idTopic"));
-                m.put("idUsers",resultSet.getString("idUsers"));
+                m.put("idUsers",resultSet.getString("Name"));
                 list.add(m);
             }
                         request.setAttribute("listofposts", list);
