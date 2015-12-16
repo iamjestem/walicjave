@@ -21,15 +21,8 @@
     </head>
     <%String sub = request.getParameter("cathegory"); 
     %>
-    <c:set var="subj" value="Gra"/>
-    <sql:query var="subjects" dataSource="jdbc/NieLubimyJavy">
-    SELECT * from topics t, cathegories c WHERE c.idCathegory = t.idCathegory
-</sql:query>
- 
-    
     
     <body>
-                <h1><%=sub.toString()%>    </h1>
         <table>
     <!-- column headers -->
         <thead>
@@ -47,6 +40,13 @@
         </tr>
     </c:forEach>
 </table>
+        <form action="NewTopic" method="POST" id='notes' name='notes'>
+        <div class='note'>  
+            <input tyle='text' name='newtopic'/>
+            <input type='hidden' name='cathegory' value="<%=sub.toString()%>"/>
+            <input  type="submit" name="submit"  value="Dodaj sobie nowy temat">
+        </div>
+        <p>${error}</p></form>
     </body>
 </html>
 <jsp:include page="/menus/footer.jsp"/>
