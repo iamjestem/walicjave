@@ -27,17 +27,18 @@
      </c:forEach></div>
         <table>
     <!-- column headers -->
-    <tr>
-    <c:forEach var="columnName" items="${subjects.columnNames}">
-        <th><c:out value="${columnName}"/></th>
-    </c:forEach>
-</tr>
+        <thead>
+                <tr>
+                    <c:forEach var="columnName" items="${subjects.columnNames}">
+                        <th><c:out value="${columnName}"/></th>
+                    </c:forEach>
+                </tr>
+        </thead>
 <!-- column data -->
 <c:forEach var="row" items="${subjects.rowsByIndex}">
-    <tr>
+    <tr class="mouseover" onclick="document.location = 'ShowTopics?cathegory='+${row[0]};">
     <c:forEach var="column" items="${row}">
-        <td><a href="ShowTopics?cathegory=${column}"><c:out value="${column}"/></a></td>
-         
+        <td><c:out value="${column}"/></td>
     </c:forEach>
     </tr>
 </c:forEach>

@@ -129,9 +129,14 @@ table.foot
 .note{
     margin: auto;
      width: 80%;
-     height: 400px;
-     font-size:18pt;
 }
 textarea {
+     font-size:18pt;
+     text-align: left;
+     height: 400px;
+     width: 80%;
    resize: none;
+}
+tr.mouseover:hover{
+    background-color: brown;
 }

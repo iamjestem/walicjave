@@ -52,6 +52,10 @@
         <servlet-name>SendMessage</servlet-name>
         <servlet-class>User.SendMessage</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ShowPosts</servlet-name>
+        <servlet-class>User.ShowPosts</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewServlet</servlet-name>
         <url-pattern>/NewServlet</url-pattern>
@@ -99,6 +103,10 @@
     <servlet-mapping>
         <servlet-name>SendMessage</servlet-name>
         <url-pattern>/SendMessage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowPosts</servlet-name>
+        <url-pattern>/ShowPosts</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>1200</session-timeout>
