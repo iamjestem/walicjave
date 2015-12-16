@@ -4,17 +4,19 @@
  * and open the template in the editor.
  */
 
-package Admin;
+package User;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
@@ -28,11 +30,12 @@ import javax.servlet.http.HttpSession;
  *
  * @author Marcin
  */
-public class Note extends HttpServlet {
+public class SendMessage extends HttpServlet {
     private Connection connect = null;
     private Statement statement = null;
     private ResultSet resultSet = null;
     private PreparedStatement preparedStatement = null;
+    private boolean status;
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -50,10 +53,10 @@ public class Note extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Note</title>");            
+            out.println("<title>Servlet SendMessage</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet Note at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet SendMessage at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -71,41 +74,17 @@ public class Note extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try 
-        {
-            Class.forName("com.mysql.jdbc.Driver");
-            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
-            if(connect != null)
-            {
-                statement = connect.createStatement();
-                HttpSession session = request.getSession();
-                resultSet = statement.executeQuery("select * from adminnote");
-                resultSet.next(); ///?
-                
-                    if(resultSet.first() == true)
-                    {
-                        String Note = resultSet.getString("note");
-                        request.setAttribute("note", Note);
-                         RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/Note.jsp");
-                        rd.forward(request, response);
-                    }
-                    else
-                    {
-                        connect.close();
-                        request.setAttribute("error", "Something went wrong :/");
-                         RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/Note.jsp");
-                        rd.forward(request, response);
-                    }
+        processRequest(request, response);
+    }
 
-            }
-    }
-        catch (SQLException ex)
-        {
-            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
+    /**
+     * Handles the HTTP <code>POST</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -116,23 +95,48 @@ public class Note extends HttpServlet {
             if(connect != null)
             {
                 statement = connect.createStatement();
-                String textbox = request.getParameter("text");
-                preparedStatement = connect.prepareStatement("UPDATE adminnote SET note=?");
-                preparedStatement.setString(1, textbox);
-                preparedStatement.executeUpdate();
-                request.setAttribute("error", "Saved");
-                request.setAttribute("note", textbox);
-                RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/Note.jsp");
-                rd.forward(request, response);
+                HttpSession session = request.getSession();
+                Integer id= (Integer)session.getAttribute("id");
+                String receiver = (String)request.getParameter("Nickname");
+                String message = (String)request.getParameter("message");
+                resultSet = statement.executeQuery("select idUsers from users where Nickname ='"+receiver+"'");
+                status = resultSet.next();
+                if(status)
+                {
+                    Integer idreceiver =resultSet.getInt("idUsers");
+                    preparedStatement = connect.prepareStatement("insert into  messages values (default, ?, ?, ?)");
+                    preparedStatement.setInt(1, id);
+                    preparedStatement.setInt(2, idreceiver);
+                    preparedStatement.setString(3, message);
+                    preparedStatement.executeUpdate();
+                    request.setAttribute("error", "Message sent");       
+                    RequestDispatcher rd = request.getRequestDispatcher("sendmessage.jsp");
+                    rd.forward(request, response);
+                }
+                else
+                {
+                    request.setAttribute("error", "Nickname doesn't exist"); 
+                    RequestDispatcher rd = request.getRequestDispatcher("sendmessage.jsp");
+                    rd.forward(request, response);
+                }
             }
-
-         }
-    
+    }
         catch (SQLException ex)
         {
-            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SendMessage.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(SendMessage.class.getName()).log(Level.SEVERE, null, ex);
         }
-}
+    }
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
+
 }

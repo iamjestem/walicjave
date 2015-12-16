@@ -18,9 +18,7 @@
     <body>
         <form action="Note" method="POST" id='notes' name='notes'>
         <div class='note'>  
-            <textarea class='note' id="text" name="text" width='500' height='300'>
-                ${note}
-            </textarea>
+            <textarea class='note' id="text" name="text" width='500' height='300'>${note}</textarea>
             <input  type="submit" name="submit"  value="Save">
         </div>
         <p>${error}</p></form>
