@@ -19,27 +19,18 @@
 <html>
     <head>
     </head>
-    <%String sub = request.getParameter("cathegory"); 
-    %>
-    <c:set var="subj" value="Gra"/>
-    <sql:query var="subjects" dataSource="jdbc/NieLubimyJavy">
-    SELECT * from topics t, cathegories c WHERE c.idCathegory = t.idCathegory
-</sql:query>
  
-    
-    
     <body>
-                <h1><%=sub.toString()%>    </h1>
         <table>
     <!-- column headers -->
         <thead>
+                    <th><fmt:message key='idPost'/></th>
+                    <th><fmt:message key='tekst'/></th>
                     <th><fmt:message key='idTopic'/></th>
-                    <th><fmt:message key='topic'/></th>
-                    <th><fmt:message key='idCathegory'/></th>
                     <th><fmt:message key='idUsers'/></th>
         </thead>
-    <c:forEach items="${listoftopics}" var="row">
-        <tr class="mouseover"  onclick="document.location = 'topics.jsp?topic='+${row.idTopic};">
+    <c:forEach items="${listofposts}" var="row">
+        <tr>
                 <td>${row.idTopic}</td>
                 <td>${row.topic}</td>
                 <td>${row.idCathegory}</td>

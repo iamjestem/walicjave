@@ -39,7 +39,7 @@
                     <th><fmt:message key='idUsers'/></th>
         </thead>
     <c:forEach items="${listoftopics}" var="row">
-        <tr class="mouseover"  onclick="document.location = 'topics.jsp?topic='+${row.idTopic};">
+        <tr class='mouseover' onclick="document.location = 'ShowPosts?topic='+${row.idTopic}; ">
                 <td>${row.idTopic}</td>
                 <td>${row.topic}</td>
                 <td>${row.idCathegory}</td>
