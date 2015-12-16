@@ -100,7 +100,7 @@ public class NewPost extends HttpServlet {
                 Integer topic = Integer.parseInt(request.getParameter("topic"));
                 String message = (String)request.getParameter("newtopic");
  
-                    preparedStatement = connect.prepareStatement("insert into topics values (default, ?, ?, ?)");
+                    preparedStatement = connect.prepareStatement("insert into posts values (default, ?, ?, ?)");
                     preparedStatement.setString(1, message);
                     preparedStatement.setInt(2, topic);
                     preparedStatement.setInt(3, id);

@@ -39,11 +39,11 @@
 　　</c:forEach>
 </table>
 　　　　<form action="NewTopic" method="POST" id='notes' name='notes'>
-　　　　<div class='note'>　
-　　　　　　<input tyle='text' name='newtopic'/>
-　　　　　　<input type='hidden' name='cathegory' value="<%=sub.toString()%>"/>
-　　　　　　<input　type="submit" name="submit"　value="Dodaj sobie nowy temat">
-　　　　</div>
+              <div class='note'>
+            <input tyle='text' name='newtopic'/>
+            <input type='hidden' name='cathegory' value="<%=sub.toString()%>"/>
+            <input  type="submit" name="submit"  value="Dodaj sobie nowy temat">
+        </div>
 　　　　<p>${error}</p></form>
 　　</body>
 </html>

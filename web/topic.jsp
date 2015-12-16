@@ -25,17 +25,13 @@
         <table>
     <!-- column headers -->
         <thead>
-                    <th><fmt:message key='idPost'/></th>
-                    <th><fmt:message key='tekst'/></th>
-                    <th><fmt:message key='idTopic'/></th>
                     <th><fmt:message key='idUsers'/></th>
+                    <th><fmt:message key='tekst'/></th>
         </thead>
     <c:forEach items="${listofposts}" var="row">
         <tr>
-                <td>${row.idTopic}</td>
-                <td>${row.topic}</td>
-                <td>${row.idCathegory}</td>
                 <td>${row.idUsers}</td>
+                <td>${row.topic}</td>
         </tr>
     </c:forEach>
 </table>
