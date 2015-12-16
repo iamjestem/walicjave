@@ -25,13 +25,13 @@
         <table>
     <!-- column headers -->
         <thead>
-                    <th><fmt:message key='idUsers'/></th>
-                    <th><fmt:message key='tekst'/></th>
         </thead>
     <c:forEach items="${listofposts}" var="row">
         <tr>
-                <td>${row.idUsers}</td>
-                <td>${row.topic}</td>
+                <td class="bubble">${row.Nickname}:</td>
+        </tr>
+        <tr>
+                <td><pre>${row.topic}</pre></td>
         </tr>
     </c:forEach>
 </table>

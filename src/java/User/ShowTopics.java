@@ -49,7 +49,7 @@ public class ShowTopics extends HttpServlet {
                 statement = connect.createStatement();
                 String sub = request.getParameter("cathegory");
                 
-                resultSet = statement.executeQuery("select * from topics where idCathegory='"+ sub +"'");
+                resultSet = statement.executeQuery("select * from topics t, users u where idCathegory='"+ sub +"' AND u.idUsers = t.idUsers");
                 
                 while(resultSet.next())
             {
@@ -58,6 +58,7 @@ public class ShowTopics extends HttpServlet {
                 m.put("topic",resultSet.getString("topic"));
                 m.put("idCathegory",resultSet.getString("idCathegory"));
                 m.put("idUsers",resultSet.getString("idUsers"));
+                m.put("Nickname",resultSet.getString("Nickname"));
                 list.add(m);
             }
                         request.setAttribute("listoftopics", list);

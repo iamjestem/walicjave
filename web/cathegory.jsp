@@ -24,17 +24,13 @@
 　　　　<table>
 　　<!-- column headers -->
 　　　　<thead>
-　　　　　　　　　　<th><fmt:message key='idTopic'/></th>
 　　　　　　　　　　<th><fmt:message key='topic'/></th>
-　　　　　　　　　　<th><fmt:message key='idCathegory'/></th>
 　　　　　　　　　　<th><fmt:message key='idUsers'/></th>
 　　　　</thead>
 　　<c:forEach items="${listoftopics}" var="row">
 　　　　<tr class='mouseover' onclick="document.location = 'ShowPosts?topic='+${row.idTopic}; ">
-　　　　　　　　<td>${row.idTopic}</td>
 　　　　　　　　<td>${row.topic}</td>
-　　　　　　　　<td>${row.idCathegory}</td>
-　　　　　　　　<td>${row.idUsers}</td>
+　　　　　　　　<td>${row.Nickname}</td>
 　　　　</tr>
 　　</c:forEach>
 </table>
