@@ -22,9 +22,10 @@
     <tr>
         <thead>
             <tr> 
-            <th><fmt:message key='sender'/></th>
-            <th><fmt:message key='receiver'/></th>
-            <th><fmt:message key='message'/></th>
+            <th><fmt:message key='idUsers'/></th>
+            <th><fmt:message key='nickname'/></th>
+            <th><fmt:message key='name'/></th>
+            <th><fmt:message key='surname'/></th>
             </tr>
         </thead>
 </tr>

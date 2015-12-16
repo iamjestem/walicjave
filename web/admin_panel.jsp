@@ -13,19 +13,19 @@
         <title><fmt:message key='title'/></title>
     </head>
     <body>
-        <h2>Panel Administracyjny</h2>
+        <h2><fmt:message key='Admin Panel'/></h2>
         <table>
     <tr>
-        <th>Notka admina</th>
-        <th><a href="Note">Przejdź</a></th>
+        <th><fmt:message key='adminnote'/></th>
+        <th><a href="Note"><fmt:message key='go'/></a></th>
     </tr>
     <tr>
-        <th>Lista użytkowników</th>
-        <th><a href="Users">Przejdź</a></th>
+        <th><fmt:message key='listofusers'/></th>
+        <th><a href="Users"><fmt:message key='go'/></a></th>
     </tr> 
     <tr>
-        <th>Lista prywatnych wiadomości użytkowników</th>
-        <th><a href="AllMessages">Przejdź</a></th>
+        <th><fmt:message key='listofpriv'/></th>
+        <th><a href="AllMessages"><fmt:message key='go'/></a></th>
     </tr>
 </table>
     </body>
