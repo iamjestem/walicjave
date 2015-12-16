@@ -15,7 +15,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-            <div class="loginregister"><a  href="admin_panel.jsp"><fmt:message key='Admin Panel'/></a><small>/</small>
+            <div class="loginregister"><a href="Messages"><fmt:message key='messages'/></a><small>/</small>
+                <a href="admin_panel.jsp"><fmt:message key='Admin Panel'/></a><small>/</small>
                 <a href="Logout"><fmt:message key='logout'/></a>
             </div>
         <h1><a class="headlink" href="Stats"><fmt:message key='h1'/></a></h1>
