@@ -29,7 +29,7 @@
     
     
     <body>
-                <h1><%=sub.toString()%>    </h1>
+                
         <table>
     <!-- column headers -->
         <thead>
