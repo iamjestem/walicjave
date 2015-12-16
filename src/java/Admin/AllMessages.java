@@ -119,7 +119,32 @@ public class AllMessages extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try 
+        {
+            ArrayList list = new ArrayList();
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
+            if(connect != null)
+            {
+                statement = connect.createStatement();
+                HttpSession session = request.getSession();
+                Integer id= (Integer)session.getAttribute("id");
+                String mes = (String)request.getParameter("submit");
+                
+                statement.executeUpdate("delete from messages where Message='"+mes+"'");
+                
+                
+                       
+                         RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/allmessages.jsp");
+                        rd.forward(request, response);
+            }
+    }
+        catch (SQLException ex)
+        {
+            Logger.getLogger(AllMessages.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(AllMessages.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

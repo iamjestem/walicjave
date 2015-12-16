@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+ 
 package User;
-
+ 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
+ 
 /**
  *
  * @author Marcin
@@ -61,7 +61,7 @@ public class NewTopic extends HttpServlet {
             out.println("</html>");
         }
     }
-
+ 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -76,7 +76,7 @@ public class NewTopic extends HttpServlet {
             throws ServletException, IOException {
         processRequest(request, response);
     }
-
+ 
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -88,7 +88,7 @@ public class NewTopic extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try 
+        try
         {
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
@@ -99,12 +99,12 @@ public class NewTopic extends HttpServlet {
                 Integer id= (Integer)session.getAttribute("id");
                 Integer cathegory= Integer.parseInt(request.getParameter("cathegory"));
                 String message = (String)request.getParameter("newtopic");
-
+ 
                     preparedStatement = connect.prepareStatement("insert into  topics values (default, ?, ?, ?)");
                     preparedStatement.setString(1, message);
                     preparedStatement.setInt(2, cathegory);
                     preparedStatement.setInt(3, id);
-                    preparedStatement.executeUpdate(); 
+                    preparedStatement.executeUpdate();
                     response.sendRedirect("ShowTopics?cathegory="+cathegory);
                     //RequestDispatcher rd = request.getRequestDispatcher("cathegory.jsp");
                     //rd.forward(request, response);
@@ -117,7 +117,7 @@ public class NewTopic extends HttpServlet {
             Logger.getLogger(SendMessage.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+ 
     /**
      * Returns a short description of the servlet.
      *
@@ -127,5 +127,5 @@ public class NewTopic extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-
+ 
 }
