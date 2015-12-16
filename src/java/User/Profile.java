@@ -154,6 +154,7 @@ public class Profile extends HttpServlet {
                         request.setAttribute("Surname", Surname);
                         request.setAttribute("Login",Login);
                         request.setAttribute("Password", Password);
+                        request.setAttribute("error","Zapisano poprawnie");
                 //response.sendRedirect("profile.jsp");
                 rd.forward(request, response);
             }

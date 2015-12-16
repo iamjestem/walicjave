@@ -4,6 +4,7 @@
     Document   : index
     Author     : Marcin
 --%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,18 +26,18 @@
                     <td><label  id ='valLogin'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
+                    <td><fmt:message key='password'/></td>
                     <td><input type ='password' id ='Password' name='Password' value=${Password}></td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>
                 
                 <tr>
-                    <td>Name:</td>
+                    <td><fmt:message key='name'/></td>
                     <td><input type ='text' id ='Name' name='Name' value="${Name}" /></td>
                     <td><label  id ='valName'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Surname:</td>
+                    <td><fmt:message key='surname'/></td>
                     <td> <input type ='text' id ='Surname' name='Surname' value=${Surname} /></td>
                     <td><label  id ='valSurname'  class="val"/></td>
                 </tr>

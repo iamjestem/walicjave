@@ -3,6 +3,8 @@
     Created on : 2015-12-16, 02:53:31
     Author     : Marcin
 --%>
+
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/menus/header.jsp"/>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,18 +19,18 @@
             
             <table border ='0'>
                 <tr>
-                    <td>Nickname:</td>
+                    <td><fmt:message key='nickname'/></td>
                     <td><input type ='text' id ='Nickname' name='Nickname' /></td>
                     <td><label  id ='valNickname'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Message:</td>
+                    <td><fmt:message key='message'/></td>
                     <td><input type ='text' id ='message' name='message' /></td>
                     <td><label  id ='valMessage'  class="val"/></td>
                 </tr>
                 <tr>
                     <td colspan='1'></td>
-                    <td align='right'><input  type="submit" name="submit"  value="Submit"></td>
+                    <td align='right'><input  type="submit" name="submit"  value="<fmt:message key='submit'/>"></td>
                 </tr>
                 <tr>
                     <td> <p>${error}</p></td>

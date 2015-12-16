@@ -22,7 +22,7 @@
                     <td><label  id ='valLogin'  class="val"/></td>
                 </tr>
                 <tr>
-                    <td>Password:</td>
+                    <td><fmt:message key='password'/></td>
                     <td><input type ='password' id ='Password' name='Password' /></td>
                     <td><label  id ='valPassword'  class="val"/></td>
                 </tr>
