@@ -50,6 +50,7 @@ public class Login extends HttpServlet {
                         int id = resultSet.getInt("idUsers");
                         HttpSession session = request.getSession(true);
                         session.setAttribute("login", request.getParameter("Login"));
+                        session.setMaxInactiveInterval(1800); 
                         session.setAttribute("id",id);
                         connect.close();
                         response.sendRedirect("index.jsp");

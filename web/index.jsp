@@ -36,7 +36,7 @@
 <c:forEach var="row" items="${subjects.rowsByIndex}">
     <tr>
     <c:forEach var="column" items="${row}">
-        <td><a href="cathegory.jsp?cathegory=${column}"><c:out value="${column}"/></a></td>
+        <td><a href="ShowTopics?cathegory=${column}"><c:out value="${column}"/></a></td>
          
     </c:forEach>
     </tr>
