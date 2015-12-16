@@ -106,4 +106,33 @@ public class Note extends HttpServlet {
             Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        try 
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+            connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
+            if(connect != null)
+            {
+                statement = connect.createStatement();
+                String textbox = request.getParameter("text");
+                preparedStatement = connect.prepareStatement("UPDATE adminnote SET note=?");
+                preparedStatement.setString(1, textbox);
+                preparedStatement.executeQuery();
+                request.setAttribute("error", "Saved");
+                request.setAttribute("note", textbox);
+                RequestDispatcher rd = request.getRequestDispatcher("/admin_panel/Note.jsp");
+                rd.forward(request, response);
+            }
+
+         }
+    
+        catch (SQLException ex)
+        {
+            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Note.class.getName()).log(Level.SEVERE, null, ex);
+        }
+}
 }

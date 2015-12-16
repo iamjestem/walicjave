@@ -16,12 +16,14 @@
     <head>
     </head>
     <body>
+        <form action="Note" method="POST" id='notes' name='notes'>
         <div class='note'>  
-            <textarea class='note' width='500' height='300'>
+            <textarea class='note' id="text" name="text" width='500' height='300'>
                 ${note}
             </textarea>
+            <input  type="submit" name="submit"  value="Save">
         </div>
-        <p>${error}</p>
+        <p>${error}</p></form>
     </body>
 </html>
 <jsp:include page="/menus/footer.jsp"/>
