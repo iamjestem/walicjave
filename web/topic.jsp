@@ -39,7 +39,7 @@
         <div class='note'>
             <input tyle='text' name='newtopic'/>
             <input type='hidden' name='topic' value="<%=sub.toString()%>"/>
-            <input  type="submit" name="submit"  value="Dodaj sobie nowy post">
+            <input  type="submit" name="submit"  value="<fmt:message key='addpost'/>">
         </div>
         <p>${error}</p></form>
     </body>

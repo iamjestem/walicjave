@@ -25,7 +25,7 @@
 　　<!-- column headers -->
 　　　　<thead>
 　　　　　　　　　　<th><fmt:message key='topic'/></th>
-　　　　　　　　　　<th><fmt:message key='idUsers'/></th>
+　　　　　　　　　　<th><fmt:message key='nickname'/></th>
 　　　　</thead>
 　　<c:forEach items="${listoftopics}" var="row">
 　　　　<tr class='mouseover' onclick="document.location = 'ShowPosts?topic='+${row.idTopic}; ">
@@ -38,7 +38,7 @@
               <div class='note'>
             <input tyle='text' name='newtopic'/>
             <input type='hidden' name='cathegory' value="<%=sub.toString()%>"/>
-            <input  type="submit" name="submit"  value="Dodaj sobie nowy temat">
+            <input  type="submit" name="submit"  value="<fmt:message key='addtopic'/>">
         </div>
 　　　　<p>${error}</p></form>
 　　</body>
