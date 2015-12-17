@@ -13,9 +13,10 @@
     <head>
     </head>     
     <body>
-        <div><p class="time"><fmt:message key='visited'/>: ${visited}</p></div>
-        <div><p class="time"><fmt:message key='date'/> <%= (new java.util.Date()).toLocaleString()%></p></div>
-        <p class="copyrights"><fmt:message key='foot'/>
-        </p>
+        <div>
+        <p class="time"><fmt:message key='date'/> <%= (new java.util.Date()).toLocaleString()%></p>
+        <p class="copyrights"><fmt:message key='foot'/></p>
+        <p class="visitations"><fmt:message key='visited'/>: ${visited}</p>
+        </div>
     </body>
 </html>

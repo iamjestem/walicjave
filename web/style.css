@@ -98,6 +98,13 @@ div.loginregister {
 p.time {
     float: right;
 }
+p.visitations {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    text-align: center;
+    background-color:#c8ab7f;
+}
 p.copyrights {
      position: fixed;
     float: left;
