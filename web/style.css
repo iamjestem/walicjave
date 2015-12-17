@@ -68,12 +68,12 @@ a:link:hover {
 a:visited {
 　　text-decoration: none;
 }
-time {
+.time {
      position: fixed;
     bottom: 0;
     right: 0;
     float:right;
-    background: none;
+    background-color:#c8ab7f;
 }
 small{
     color: coral
@@ -99,7 +99,11 @@ p.time {
     float: right;
 }
 p.copyrights {
+     position: fixed;
     float: left;
+    bottom: 0;
+    left: 0;
+    background-color:#c8ab7f;
 }
 div.headerWidget{
     float:left;
@@ -111,6 +115,9 @@ div.adminnote{
     width:40%;
     margin-left: auto;
     margin-right: auto;
+}
+div.foot{
+    background-color:#555;
 }
 .bubble {
     font-weight: bold;
@@ -124,11 +131,7 @@ div.adminnote{
 .eng{
     background-image: url(http://static.hltv.org//images/flag/gb.gif);
 }
-table.foot
-{
-    background:none;
-    border-collapse: collapse;
-}
+
 .note{
     margin: auto;
      width: 80%;

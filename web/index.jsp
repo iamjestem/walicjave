@@ -29,9 +29,8 @@
     <!-- column headers -->
         <thead>
                 <tr>
-                    <c:forEach var="columnName" items="${subjects.columnNames}">
-                        <th><c:out value="${columnName}"/></th>
-                    </c:forEach>
+                        <th><fmt:message key='idCathegory'/></th>
+                        <th><fmt:message key='catname'/></th>
                 </tr>
         </thead>
 <!-- column data -->
