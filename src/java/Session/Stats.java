@@ -96,6 +96,10 @@ public class Stats extends HttpServlet {
                 resultSet1.next();
                 num = resultSet1.getInt("visited");
                 request.setAttribute("visited", num);
+                preparedStatement=connect.prepareStatement("Select count(idUsers) a from users");
+                resultSet1 =preparedStatement.executeQuery();
+                int am=100;
+                request.setAttribute("a", am);
             }
             else
             {
@@ -104,6 +108,11 @@ public class Stats extends HttpServlet {
                 resultSet1.next();
                 num = resultSet1.getInt("visited");
                 request.setAttribute("visited", num);
+                preparedStatement=connect.prepareStatement("Select count(idUsers) a from users");
+                resultSet1 =preparedStatement.executeQuery();
+                resultSet1.next();
+                int am=resultSet1.getInt("a");
+                request.setAttribute("a", am);
             }
             
             connect.close();

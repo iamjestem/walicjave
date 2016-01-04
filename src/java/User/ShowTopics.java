@@ -41,6 +41,15 @@ public class ShowTopics extends HttpServlet {
             throws ServletException, IOException {         
         try 
         {
+            if(request.getSession().getAttribute("login")==null)
+            {
+                request.setAttribute("error", "Zaloguj się, aby móc przeglądać");
+                         RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+                        rd.forward(request, response);
+            
+            }
+            else
+            {
             ArrayList list = new ArrayList();
             Class.forName("com.mysql.jdbc.Driver");
             connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/baza","root", "");
@@ -66,12 +75,14 @@ public class ShowTopics extends HttpServlet {
                         rd.forward(request, response);
             }
     }
+        }
         catch (SQLException ex)
         {
             Logger.getLogger(Messages.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Messages.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
     
     @Override

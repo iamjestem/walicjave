@@ -17,6 +17,7 @@
         <p class="time"><fmt:message key='date'/> <%= (new java.util.Date()).toLocaleString()%></p>
         <p class="copyrights"><fmt:message key='foot'/></p>
         <p class="visitations"><fmt:message key='visited'/>: ${visited}</p>
+        <p class="registered"><fmt:message key='registred'/>: ${a}</p>
         </div>
     </body>
 </html>

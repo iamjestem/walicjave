@@ -161,3 +161,9 @@ pre
     white-space: -o-pre-wrap; /* Opera 7 */
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
+p.registered{
+    bottom: 0;
+    left: 70%;
+    text-align: center;
+    background-color:#c8ab7f;
+}
